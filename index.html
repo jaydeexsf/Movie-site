@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <title>Tiny Moviez</title>
+</head>
+<body>
+ <section>
+    <div class="sidebar">
+        <div class="logo">
+            <h1>TINY</h1>
+            <h5 class="mo">MOVIEZ</h5>
+        </div>
+        <div class="menu">
+            <h3>Menu</h3>
+            <div class="menu-item">
+                <i class='bx bx-home'></i>
+                <span>Home</span>
+            </div>
+            <div class="menu-item">
+                <i class='bx bx-compass'></i>
+                <span>Discover</span>
+            </div>
+            <div class="menu-item">
+                <i class='bx bxs-trophy'></i>
+                <span>Awards</span>
+            </div>
+            <div class="menu-item">
+                <i class='bx bx-user'></i>
+                <span>Celebrities</span>
+            </div>
+        </div>
+        <div class="library">
+            <h3>Library</h3>
+            <div class="library-item">
+                <i class='bx bx-time'></i>
+                <span>Recent</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-star'></i>
+                <span>Top Talent</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-cloud-download'></i>
+                <span>Downloaded</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-list-ul'></i>
+                <span>Playlists</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-show'></i>
+                <span>Watchlist</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-check-circle'></i>
+                <span>Completed</span>
+            </div>
+        </div>
+        <div class="general">
+            <h3>General</h3>
+            <div class="settings">
+                <i class='bx bx-cog'></i>
+                <span>Settings</span>
+            </div>
+            <div class="logout">
+                <i class='bx bx-log-out'></i>
+                <span>Log Out</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+            <nav>
+                <a href="#" class="active">Movies</a>
+                <a href="#">TV Shows</a>
+                <a href="#">Anime</a>
+                <div class="search">
+                    <box-icon color="#fff" name='search'></box-icon>
+                    <input type="text" placeholder="Search">
+                </div>
+            </nav>
+
+            <div id="carousel-container">
+                <div id="carousel"></div>
+                <div class="button-container-next-prev">
+                    <button onclick="prevSlide()" class="prev pre"><box-icon name='chevron-left' color='#ffffff' ></box-icon></button>
+                    <button onclick="nextSlide()" class="prev next"><box-icon name='chevron-right' color='#ffffff'></box-icon></button>
+                </div>
+                <div class="button-container">
+                    <button class="watchlist-button">Add to Watchlist</button>
+                    <button class="watch-now-button">Watch Now</button>
+                </div>
+            </div>
+
+            <div class="popular">
+                <h1>Popular on TinyMoviez</h1>
+                <div class="cover">
+                    
+                </div>            
+            </div>
+    </div>  
+    
+    <div class="far-right">
+        <div class="sidebar-r">
+            <div class="notification-icon">
+                <i class='bx bx-bell'></i>
+            </div>
+            <div class="profile">
+              <p>johannes</p><i class='bx bx-chevron-down' style='color:#ffffff'></i>
+              <img src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="header">
+              <div class="icons">
+                <h5>Continue</h5> ⬅️ ➡️
+              </div>
+              <div class="see-more">
+                See More ➡️
+              </div>
+              <div class="icons">
+                ➡️
+              </div>
+            </div>
+        
+            <div class="thumbnail">
+                <div class="more-d">
+                        <img src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                        <div class="info">
+                            <h3>Movie Title</h3>
+                            <p>Episodes Left: 5</p>
+                            <p>Episode Progress: 80%</p>
+                        </div>
+                </div>        
+                <div class="buttons">
+                    <button class="button drop-button">Drop</button>
+                    <button class="button watch-button">Watch</button>
+                </div>
+            </div>
+
+
+
+          </div>
+    </div> 
+ </section>  
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="script.js"></script> 
+</body>
+</html>
