@@ -23,20 +23,24 @@ navLinks.forEach(link => {
 
 // movies sliding //
 
-const API_LINK = 'https://api.themoviedb.org/3/movie/popular?api_key=0a75b7b77f453f2a8041e13b6e383224&language=en-US&page=1' 
+const APILINK = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=41ee980e4b5f05f6693fda00eb7c4fd4&page=1';
+const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
+const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=41ee980e4b5f05f6693fda00eb7c4fd4&query=";
 
 const carousel = document.getElementById('carousel');
 const watchlistButton = document.querySelector('.watchlist-button');
 const watchNowButton = document.querySelector('.watch-now-button');
 
 // Super junior developer's attempt at API integration
-fetch(API_LINK)
+fetch(APILINK)
     .then(response => response.json())
-    .then(data => {
+    .then(data => {       
         const movies = data.results.slice(0, 10); // Limiting to 5 movies for simplicity
+        console.log(movies);
         populateCarousel(movies);
+
     })
-    .catch(error => console.error('Oops, something went wrong:', error));
+    .catch(error => console.error('Oops, i jaydee something went wrong:', error));
 
 function populateCarousel(movies) {
     movies.forEach(movie => {
@@ -51,7 +55,7 @@ function createMovieSlide(movie) {
     slide.classList.add('movie-slide');
 
     const image = document.createElement('img');
-    image.src = `https://image.tmdb.org/t/p/w500${movie.backdrop_path}`;
+    image.src = IMG_PATH + movie.backdrop_path;
     image.alt = movie.title;
 
     const info = document.createElement('div');
@@ -60,8 +64,6 @@ function createMovieSlide(movie) {
 
     slide.appendChild(image);
     slide.appendChild(info);
-
-    generateStars(movie.ratings);
 
     return slide;
 }
@@ -93,34 +95,28 @@ function prevSlide() {
 
 setInterval(nextSlide, 10000);
 
-
-const stars = document.querySelector('.stars');  
-
 function generateStars(number) {
     const roundedNumber = Math.round(number / 2);
 
     for (let i = 0; i < 5; i++) {
-      const starDiv = document.createElement('div');
-      starDiv.className = i < roundedNumber ? 'full-star' : 'empty-star';
-      stars.appendChild(starDiv);
+      const starDiv1 = document.createElement('div');
+      starDiv1.className = i < roundedNumber ? 'full-star' : 'empty-star';
+      starsDiv.appendChild(starDiv1);
     }
 
     //   if (number < 1)
   }
 
-  generateStars
-
-  // Example: Call the function with a number between 0 and 10
- 
+const API_SERIES_LINK = 'https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=41ee980e4b5f05f6693fda00eb7c4fd4&page=1'
 
 const cover_Div = document.querySelector('.cover');
 
-lj
-fetch(API_LINK)
+fetch(API_SERIES_LINK)
     .then(response => response.json())
     .then(data => {
-        const movies = data.results.slice(10, 13); // Limiting to 5 movies for simplicity
+        const movies = data.results.slice(0, 3); // Limiting to 5 movies for simplicity
         populateCover(movies);
+        console.log(movies);
     })
     .catch(error => console.error('Error fetching data:', error));
 
@@ -150,7 +146,7 @@ function createMovieElement(movie) {
     insDiv.classList.add('ins');
 
     const titleHeading = document.createElement('h3');
-    titleHeading.textContent = movie.title;
+    titleHeading.textContent = movie.original_name;
 
     const starsDiv = document.createElement('div');
     starsDiv.classList.add('stars');
@@ -194,4 +190,9 @@ function createMovieElement(movie) {
     return wholeDiv;
 }
 
-  
+const seeMore = document.querySelector('.see-more');
+const allThumbnail = document.querySelectorAll('.all-thumbnail');
+
+function swipe() {
+    alert('you clicked')
+};
