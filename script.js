@@ -31,11 +31,12 @@ const carousel = document.getElementById('carousel');
 const watchlistButton = document.querySelector('.watchlist-button');
 const watchNowButton = document.querySelector('.watch-now-button');
 
-// Super junior developer's attempt at API integration
+// ftching data
+
 fetch(APILINK)
     .then(response => response.json())
     .then(data => {       
-        const movies = data.results.slice(0, 10); // Limiting to 5 movies for simplicity
+        const movies = data.results.slice(0, 10); 
         console.log(movies);
         populateCarousel(movies);
 
@@ -114,7 +115,7 @@ const cover_Div = document.querySelector('.cover');
 fetch(API_SERIES_LINK)
     .then(response => response.json())
     .then(data => {
-        const movies = data.results.slice(0, 3); // Limiting to 5 movies for simplicity
+        const movies = data.results.slice(0, 3); // Limiting to 3 movies for simplicity
         populateCover(movies);
         console.log(movies);
     })
@@ -190,9 +191,84 @@ function createMovieElement(movie) {
     return wholeDiv;
 }
 
-const seeMore = document.querySelector('.see-more');
-const allThumbnail = document.querySelectorAll('.all-thumbnail');
+const no1 = document.getElementById('no1');
+const allThumnail = document.querySelectorAll('.all-thumbnail');
 
-function swipe() {
-    alert('you clicked')
-};
+function slsl() {  
+    allThumnail.style.marginLeft = `-180px`;
+    allThumnail.style.transition = `1s ease-in-out`;
+    no1.style.opacity = '0';
+}
+
+const nexts_3 = document.getElementById('nexts-3');
+const ending_3 = document.getElementById('ending-3');
+const end_3 =  document.querySelector('.end-3');
+
+nexts_3.addEventListener('click', () => {
+    ending_3.style.marginLeft = '-180px';
+    end_3.style.opacity = '0';
+})
+
+const nexts_4 = document.getElementById('nexts-4');
+
+nexts_4.addEventListener('click', () => {
+    ending_3.style.marginLeft = '0px';
+    ending_3.style.transition = '0.2s ease-out';
+    end_3.style.opacity = '1';
+})
+
+// const tiny = document.getElementById('tiny');
+
+// const tile = tiny.textContent;
+
+// console.log(tile)
+
+// for(i=0; i < tile.length; i + 2) {
+//    tiny.innerHTML = tile[i].style.color = 'red';
+// }
+
+// for(i=1; i < ti.length; i + 2) {
+//    tiny.innerHTML = tile[i].style.color = 'grey';
+// }
+
+
+
+
+
+// my number 079 4920 938
+
+// let sidebar = document.querySelector('.sidebar');
+// let menuBtn = document.querySelector('.menu-btn');
+// let m_btn = document.getElementById('m-btn');
+
+// m_btn.addEventListener('click', () => {
+//     console.log('hey');
+//     sidebar.style.transform = 'translatex(0%)';
+//     menuBtn.style.transform = 'translatex(150px)';
+//     m_btn.innerHTML = '<';
+//     menuBtn.style.transition = '1s';
+// })
+
+const m_btn = document.getElementById('m_btn');
+const sidebar = document.getElementById('sidebar');
+const menuBtn = document.getElementById('menuBtn');
+
+let isExpanded = false;
+
+m_btn.addEventListener('click', () => {
+    isExpanded = !isExpanded; // Toggle the value of isExpanded
+
+    if (isExpanded) {
+        // Apply styles for expanding sidebar
+        sidebar.style.transform = 'translatex(0%)';
+        menuBtn.style.transform = 'translatex(150px)';
+        m_btn.innerHTML = '<';
+    } else {
+        // Apply styles for collapsing sidebar
+        sidebar.style.transform = 'translatex(-100%)'; // Example value for collapsing sidebar
+        menuBtn.style.transform = 'translatex(0)';
+        m_btn.innerHTML = '>'; // Example text for button when sidebar is collapsed
+    }
+
+    menuBtn.style.transition = '1s';
+});

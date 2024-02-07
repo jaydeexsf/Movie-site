@@ -8,19 +8,21 @@ body {
     padding: 0;
     font-family: 'fira sans', sans-serif;
     background-color: var(--primary-color);
+    height: 100vh;
+    width: 100vw;
 }
 
-h1, h2, h3, h4, h5{
-    font-family: 'saira';
+.popular h3{
+    font-size: medium;
+    font-family: 'Protest Revolution';
+    width: 180px; 
+    color: #00B9AE;
 }
 
 .movie-info {
     font-family: 'Protest Revolution';
 }
 
-.no h4 {
-    font-size: 4px;
-}
 
 :root {
     --primary-color: #16181E;
@@ -31,11 +33,17 @@ h1, h2, h3, h4, h5{
 
 section {
     display: grid;
-    grid-template-columns: 15% 55% 30%;
+    grid-template-columns: 15% 60% 25%;
     grid-template-rows: 100vh;
+
+}
+
+.sidebar span {
+    font-size: 14px;
 }
 
 .sidebar {
+    margin-top: -15px;
     height: 100vh;
     background-color: #333;
     color: #fff;
@@ -43,6 +51,27 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 1s;
+    /* transform: translateX(-90%); */
+}
+
+.menu-btn {
+    position: absolute;
+    top:42%;
+    left: 10px;
+    z-index: 1000000;
+    opacity: 0;
+}
+
+.menu-btn button {
+    border: none;
+    border-radius: 5px;
+    background-color: #00B9AE;
+    transition: transform 2.2s;
+    transform:rotatey(65deg);
+    color: white;
+    cursor: pointer;
+
 }
 
 .logo {
@@ -101,7 +130,7 @@ nav a {
     text-decoration: none;
     color: #fff;
     position: relative;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 nav a::before {
@@ -159,7 +188,10 @@ nav a.active::before {
     padding: 10px 30px;
 }
 
-
+.sidebar h3{
+    font-size: 15px;
+    color: #8f8f8f;
+}
 
 /* IMAGES AND API FECTHING FROM TMDB*/
 
@@ -173,12 +205,16 @@ nav a.active::before {
 #carousel {
     width: 100%;
     display: flex;
-    transition: transform 0.8s ease-in-out;
+    transition: transform 0.8s cubic-bezier(0.68, 0.18, 0, 0.46);
+}
+
+.popular h1 {
+    font-size: medium;
 }
 
 #carousel img {
     width: 100%;
-    height: 80%;
+    height: 70%;
     object-fit:cover;
     border-radius: 10px;
 }
@@ -300,6 +336,7 @@ nav a.active::before {
     width: 100%;
     z-index: -100;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .inside-elements {
@@ -329,6 +366,7 @@ nav a.active::before {
     position: absolute;
     top: 40px;
 }
+
 
 .epi-cate p{
     font-size: x-small;
@@ -372,13 +410,17 @@ nav a.active::before {
     gap: 0px;
 }
 
+.mo {
+    font-size: 13px;
+}
+
 /* far right side bar */
 
 .sidebar-r {
     display: flex;
     flex-direction: row;
     background-color: #333;
-    gap:70px;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -392,6 +434,7 @@ nav a.active::before {
     padding: 20px 20px;
     background-color: #333;
     color: white;
+    white-space: nowrap;
 }
 
 .notification-icon {
@@ -403,7 +446,6 @@ nav a.active::before {
     height: 35px;
     font-size: 30px;
     border-radius: 8px;
-    margin-left: 15px;
     padding: 2px;
 }
 
@@ -423,9 +465,25 @@ nav a.active::before {
 
     .header {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 2px;
+      gap: 20%;
+      margin-top: 10px;
+    }
+
+    .see-more {
+        font-size: 12px;
+        color: rgb(181, 181, 181);
+        cursor: pointer;
+    }
+
+    .r-l {
+        margin-left: 10px; 
+        color: grey;
+    }
+
+    #nexts {
+        cursor: pointer;
     }
 
     .icons {
@@ -436,55 +494,79 @@ nav a.active::before {
     .thumbnail {
       display: flex;
       flex-direction: column;
-      width: 200px;
+      justify-content: center;
+      width: 160px;
       height: fit-content;
-      margin-bottom: 10px;
+      margin-top: -15px;
       font-size: x-small;
-      background-color: #433966;
-      padding: 5px 5px;
-      border-radius: 5px;
+      background-color: #16181E;
+      box-sizing: border-box;
+      border-radius: 7px;
+    }
+
+    .all-thumnail {
+        display: flex;
+        width: 100%;
+        gap: 20px;
+        white-space: nowrap;
     }
 
     .thumbnail img {
-      width: 60px;
-      height: 70px;
-      border-radius: 8px;
+      width: 45px;
+      height: 50px;
+      border-radius: 5px;
       margin-right: 10px;
     }
 
+    .cont {
+        padding: 5px;
+    }
+
    .more-d {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 60px;
     }
 
     .info {
       flex-grow: 1;
+      margin-top: -12px;
     }
 
     .buttons {
       display: flex;
       gap: 10px;
+      margin-top: -5px;
+    }
+
+    .info p {
+        font-size: xx-small;
+        margin-top: -2px;
     }
 
     .button {
-      padding: 8px;
+      padding:4px;
       border: none;
-      border-radius: 5px;
+      border-radius: 7px;
       cursor: pointer;
     }
 
     .drop-button {
       background-color: #9d9d9dd7;
       color: #fff;
-      padding: 8px 15px;
+      padding: 10px 10px;
       color: #fff;
-      font-size: 11px;
+      font-size: x-small;
+      width: 55px;
+      font-weight: 700;
     }
 
     .watch-button {
       background-color: var(--tertiary-color);
       color: #16181E;
-      font-size: 11px;
-      padding: 5px 45px;
+      font-size: x-small;
+      padding: 5px 34px;
+      font-weight: 700;
     }
 
     .full-star {
@@ -505,3 +587,67 @@ nav a.active::before {
         margin-left: 5px;
         clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
     }
+
+.all-thumbnail .thumbnail {
+    background-image: url'/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg';
+}    
+
+#ttt {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    width: 170px;
+    height: 110px;
+    opacity: 0.5;
+}
+
+.end {
+    position: relative;
+    padding: 0;
+    background-color: rgb(48, 48, 48);
+}
+
+.end h2 {
+    position: absolute;
+    left: 40%;
+}
+
+#small-top {
+    object-fit: cover;
+    width: 160px;
+    height: 80px;
+}
+
+.lop {
+    position: absolute;
+}
+
+
+.top {
+    padding: 5px;
+}
+
+
+.no-2 {
+    margin-top: 35px;
+}
+
+.dddd {
+    background-color: transparent;
+    border: none;
+    font-size: 19px;
+    color: white;
+}
+
+.d-l {
+    margin-left: 10px;
+}
+
+.d-ll {
+    font-size: 18px;
+    color: grey;
+}
+
+.ending {
+    transition: 0.5s ease-in;
+}
