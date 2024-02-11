@@ -119,7 +119,12 @@ fetch(API_SERIES_LINK)
         populateCover(movies);
         console.log(movies);
     })
-    .catch(error => console.error('Error fetching data:', error));
+    .catch(error => {
+        aler('error');
+        console.error('Error fetching data:', error);
+    });
+
+
 
 function populateCover(movies) {
     movies.forEach(movie => {
@@ -207,6 +212,7 @@ const end_3 =  document.querySelector('.end-3');
 nexts_3.addEventListener('click', () => {
     ending_3.style.marginLeft = '-180px';
     end_3.style.opacity = '0';
+    nexts_4.classList.remove('d-ll');
 })
 
 const nexts_4 = document.getElementById('nexts-4');
@@ -215,6 +221,7 @@ nexts_4.addEventListener('click', () => {
     ending_3.style.marginLeft = '0px';
     ending_3.style.transition = '0.2s ease-out';
     end_3.style.opacity = '1';
+    nexts_4.classList.add('d-ll');
 })
 
 // const tiny = document.getElementById('tiny');
@@ -249,26 +256,64 @@ nexts_4.addEventListener('click', () => {
 //     menuBtn.style.transition = '1s';
 // })
 
-const m_btn = document.getElementById('m_btn');
-const sidebar = document.getElementById('sidebar');
-const menuBtn = document.getElementById('menuBtn');
+// const m_btn = document.getElementById('m_btn');
+// const sidebar = document.getElementById('sidebar');
+// const menuBtn = document.getElementById('menuBtn');
 
-let isExpanded = false;
+// let isExpanded = false;
 
-m_btn.addEventListener('click', () => {
-    isExpanded = !isExpanded; // Toggle the value of isExpanded
+// m_btn.addEventListener('click', () => {
+//     isExpanded = !isExpanded; // Toggle the value of isExpanded
 
-    if (isExpanded) {
-        // Apply styles for expanding sidebar
-        sidebar.style.transform = 'translatex(0%)';
-        menuBtn.style.transform = 'translatex(150px)';
-        m_btn.innerHTML = '<';
-    } else {
-        // Apply styles for collapsing sidebar
-        sidebar.style.transform = 'translatex(-100%)'; // Example value for collapsing sidebar
-        menuBtn.style.transform = 'translatex(0)';
-        m_btn.innerHTML = '>'; // Example text for button when sidebar is collapsed
-    }
+//     if (isExpanded) {
+//         // Apply styles for expanding sidebar
+//         sidebar.style.transform = 'translatex(0%)';
+//         menuBtn.style.transform = 'translatex(150px)';
+//         m_btn.innerHTML = '<';
+//     } else {
+//         // Apply styles for collapsing sidebar
+//         sidebar.style.transform = 'translatex(-100%)'; // Example value for collapsing sidebar
+//         menuBtn.style.transform = 'translatex(0)';
+//         m_btn.innerHTML = '>'; // Example text for button when sidebar is collapsed
+//     }
 
-    menuBtn.style.transition = '1s';
-});
+//     menuBtn.style.transition = '1s';
+// });
+
+
+    // far right sidebar
+
+const watchBtn = document.getElementById('watch-btn');
+const imgae = document.getElementById('imgae');
+
+watchBtn.addEventListener('click', () => {
+    imgae.classList.add('full-screen');
+    imgae.style.width = `${screen.width}px`;
+    imgae.style.height = `${screen.height}px`;
+    console.log('it is working')
+})
+
+watchBtn.addEventListener('blur', () => {
+    imgae.classList.remove('full-screen');
+    imgae.style.width = '45px'
+    imgae.style.height = '50px'
+    console.log('it is working')
+})
+
+const dropBtn = document.getElementById('drop-btn');
+const cont = document.querySelector('.cont');
+
+dropBtn.addEventListener('click', () => {
+    cont.classList.add('droping');
+})
+
+dropBtn.addEventListener('blur', () => {
+    cont.classList.remove('droping');
+})
+
+const closed = document.getElementById('close');
+const errors = document.querySelector('.errors');
+
+closed.addEventListener('click', () => {
+        errors.style.display = 'none';
+})

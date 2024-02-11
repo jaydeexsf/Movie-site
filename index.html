@@ -87,7 +87,7 @@
                 <a href="#">Anime</a>
                 <div class="search">
                     <box-icon color="#fff" name='search'></box-icon>
-                    <input type="text" placeholder="Search">
+                    <input type="text" placeholder="Search...">
                 </div>
             </nav>
 
@@ -97,7 +97,7 @@
                     <button onclick="prevSlide()" class="prev pre"><box-icon name='chevron-left' color='#ffffff' ></box-icon></button>
                     <button onclick="nextSlide()" class="prev next"><box-icon name='chevron-right' color='#ffffff'></box-icon></button>
                 </div>
-                <div class="button-container">
+                <div class="butayton-container">
                     <button class="watchlist-button">Add to Watchlist</button>
                     <button class="watch-now-button">Watch Now</button>
                 </div>
@@ -109,6 +109,11 @@
                     
                 </div>            
             </div>
+            <div class="errors">
+                <div id="close" class="close"><icon></icon>Close</div>
+                <h1>Error fetching data</h1>
+                <h1 class="try">Try checking your internet connections</h1>
+            </div>        
     </div>  
     
     <div class="far-right">
@@ -135,7 +140,7 @@
             <div class="all-thumnail continue">
                 <div id="no1" class="thumbnail cont">
                     <div class="more-d">
-                            <img src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                            <img id="imgae" src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
                             <div class="info">
                                 <h3>Movie Title</h3>
                                 <p>Episodes Left: 5</p>
@@ -143,8 +148,8 @@
                             </div>
                     </div>        
                     <div class="buttons">
-                        <button class="button drop-button">Drop</button>
-                        <button class="button watch-button">Watch</button>
+                        <button id="drop-btn" class="button drop-button">Drop</button>
+                        <button id="watch-btn" class="button watch-button">Watch</button>
                     </div>
                 </div>
 

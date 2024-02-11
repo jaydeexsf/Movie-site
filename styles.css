@@ -10,6 +10,12 @@ body {
     background-color: var(--primary-color);
     height: 100vh;
     width: 100vw;
+    overflow: hidden;
+}
+
+h3:hover {
+    text-shadow: 1px 1px #7bb0ad;
+    cursor:default;
 }
 
 .popular h3{
@@ -35,6 +41,7 @@ section {
     display: grid;
     grid-template-columns: 15% 60% 25%;
     grid-template-rows: 100vh;
+    overflow: none;
 
 }
 
@@ -43,7 +50,7 @@ section {
 }
 
 .sidebar {
-    margin-top: -15px;
+    margin-top: 0px;
     height: 100vh;
     background-color: #333;
     color: #fff;
@@ -79,7 +86,8 @@ section {
     flex-direction: column;
     align-items: center;
     width: 30%;
-    margin-top: -4%;
+    margin-bottom: -10%;
+    text-shadow: -3px -3px 2px #000000;
 }
 
 h3 {
@@ -113,6 +121,8 @@ span {
 .mo {
     margin-top: -25px;
     font-size: medium;
+    color: #00b9ade6;
+    text-shadow: 2px 2px 2px#000000;
 }
 
 /*      grid number 2        */
@@ -121,7 +131,7 @@ span {
 
 nav {
     display: flex;
-    gap:11%;
+    gap:15%;
     align-items: center;
     white-space: nowrap;
 }
@@ -155,25 +165,26 @@ nav a.active::before {
 }
 
 .search {
-    padding: 8px;
+    padding: 7px 15px;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    width: 30%;
+    width: 25%;
     background-color: var(--secodanry-color);
     margin-left: 50px;
 }
 
 .search input {
-    padding: 5px;
+    padding: 6px 10px;
     border: none;
     /* border-bottom: 2px solid #00B9AE; */
     background-color: transparent;
     color: #fff;
     outline: none;
-    margin-right: -10px;
-    margin-left: 2px;
+    margin-right: 0px;
+    margin-left: 0px;
+    width: 140px;
 }
 
 .search i {
@@ -214,7 +225,7 @@ nav a.active::before {
 
 #carousel img {
     width: 100%;
-    height: 70%;
+    height: 75%;
     object-fit:cover;
     border-radius: 10px;
 }
@@ -549,6 +560,7 @@ nav a.active::before {
       border: none;
       border-radius: 7px;
       cursor: pointer;
+      transition: all 0.3s;
     }
 
     .drop-button {
@@ -650,4 +662,129 @@ nav a.active::before {
 
 .ending {
     transition: 0.5s ease-in;
+}
+
+.thumbnail button:hover {
+    background-color: #00b9ade6;
+    /* transform: scale(1.1); */
+}
+
+.thumbnail button {
+    transition: 0.8s;
+}
+
+.all-thumbnail button {
+    transition: 5s ease-in;
+}
+
+.thumbnail button:focus {
+    transition: animation 2s ease;
+    animation: boom 0.5s ease 1;
+}
+
+@keyframes boom {
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.full-screen {
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    object-fit:cover;
+    transition: 1s 0.1s;
+    object-position: top;
+    z-index: 100;
+}
+
+#drop-btn:hover {
+    transform: scale(1.1);
+    background-color: rgb(92, 92, 92);
+}
+
+#drop-btn {
+    transition: all 0.3s;
+}
+
+.droping {
+    transition: all 1s ease-in-out;
+    animation: droping 2s;
+    transform: scale(0.36);
+    opacity: 0;
+}
+
+@keyframes droping {
+
+    10% {
+        transform: scale(0.6);
+        transition: transform 2.5s;
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.9;
+        z-index: 202222222222222222222;
+    }
+
+    100% {
+        transform: translateY(450%) translateX(100%) scale(0.1);
+        z-index: 202222222222222222222;
+        opacity: 0.6;
+    }
+}
+
+.errors {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 400px;
+    height: 200px;
+    background-color: #010114;
+    position: absolute;
+    top: 30%;
+    left: 400px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 8px 3px rgb(0, 0, 0);
+    color: white;
+    transition: 1s ease-in-out;
+    transform: scale(0.9);
+    animation: blick 2.2s ease-in-out 0s 1 forwards;
+    text-shadow: 1px 1px #00f6e6;
+}
+
+@keyframes blick {
+    10%, 30%, 50%,70%, 90% {
+        transform: scale(0.8);
+        background-color: #00B9AE;
+    }
+
+    20%, 40%, 60%, 80%, 100% {
+        transform: scale(1);
+        background-color: #333;
+    }
+}
+
+.try {
+    margin-left: 0px;
+    font-weight: 600;
+    font-size: large;
+}
+
+.close {
+    width: 95%;
+    transition: 0.4s ease-in-out;
+    transform: scale(0.90);
+    margin-bottom: 20px;
+}
+
+.close:hover {
+    color: #00B9AE;
+    cursor: pointer;
+
 }
