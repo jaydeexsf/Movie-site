@@ -172,7 +172,7 @@ nav a.active::before {
     justify-content: flex-end;
     width: 25%;
     background-color: var(--secodanry-color);
-    margin-left: 50px;
+    margin-left: 5%;
 }
 
 .search input {
@@ -250,7 +250,7 @@ nav a.active::before {
 
 .button-container {
     position: absolute;
-    top: 70%;
+    top: 68%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -739,7 +739,7 @@ nav a.active::before {
 }
 
 .errors {
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;

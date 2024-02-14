@@ -41,7 +41,18 @@ fetch(APILINK)
         populateCarousel(movies);
 
     })
-    .catch(error => console.error('Oops, i jaydee something went wrong:', error));
+    .catch(error => {
+        const closed = document.getElementById('close');
+        const errors = document.querySelector('.errors');
+
+        errors.style.display = 'flex'
+
+        closed.addEventListener('click', () => {
+        errors.style.display = 'none';
+            })
+
+        console.error('Oops, something went wrong:', error
+    )});
 
 function populateCarousel(movies) {
     movies.forEach(movie => {
@@ -311,9 +322,3 @@ dropBtn.addEventListener('blur', () => {
     cont.classList.remove('droping');
 })
 
-const closed = document.getElementById('close');
-const errors = document.querySelector('.errors');
-
-closed.addEventListener('click', () => {
-        errors.style.display = 'none';
-})
