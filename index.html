@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="styles.css">
+    <title>Tiny Moviez</title>
+</head>
+<body>
+ <section>
+    <div class="sidebar">
+        <div class="logo">
+            <h1 id="tiny">TINY</h1>
+            <p class="mo">MOVIEZ</p>
+        </div>
+        <div class="menu">
+            <h3>Menu</h3>
+            <div class="menu-item">
+                <i class='bx bx-home'></i>
+                <span>Home</span>
+            </div>
+            <div class="menu-item">
+                <i class='bx bx-compass'></i>
+                <span>Discover</span>
+            </div>
+            <div class="menu-item">
+                <i class='bx bxs-trophy'></i>
+                <span>Awards</span>
+            </div>
+            <div class="menu-item">
+                <i class='bx bx-user'></i>
+                <span>Celebrities</span>
+            </div>
+        </div>
+        <div class="library">
+            <h3>Library</h3>
+            <div class="library-item">
+                <i class='bx bx-time'></i>
+                <span>Recent</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-star'></i>
+                <span>Top Talent</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-cloud-download'></i>
+                <span>Downloaded</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-list-ul'></i>
+                <span>Playlists</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-show'></i>
+                <span>Watchlist</span>
+            </div>
+            <div class="library-item">
+                <i class='bx bx-check-circle'></i>
+                <span>Completed</span>
+            </div>
+        </div>
+        <div class="general">
+            <h3>General</h3>
+            <div class="settings">
+                <i class='bx bx-cog'></i>
+                <span>Settings</span>
+            </div>
+            <div class="logout">
+                <i class='bx bx-log-out'></i>
+                <span>Log Out</span>
+            </div>
+        </div>
+    </div>
+
+    <div class='menu-btn'>
+        <button id="m-btn" width="10px" height="20px">
+            >
+        </button>
+    </div>
+
+    <div class="main">
+            <nav>
+                <div class="aList">
+                    <a href="#" class="active">Movies</a>
+                    <a href="#">TV Shows</a>
+                    <a href="#">Anime</a>
+                </div>    
+                <form class="search">
+                    <box-icon color="#fff" name='search'></box-icon>
+                    <input type="text" placeholder="Search...">
+                </form>
+            </nav>
+
+            <div id="carousel-container">
+                <div id="carousel"></div>
+                <div class="button-container-next-prev">
+                    <button onclick="prevSlide()" class="prev pre"><box-icon name='chevron-left' color='#ffffff' ></box-icon></button>
+                    <button onclick="nextSlide()" class="prev next"><box-icon name='chevron-right' color='#ffffff'></box-icon></button>
+                </div>
+                <div class="button-container">
+                    <button class="watchlist-button">Add to Watchlist</button>
+                    <button class="watch-now-button">Watch Now</button>
+                </div>
+            </div>
+
+            <div class="popular">
+                <h1>Popular on TinyMoviez</h1>
+                <div class="cover">
+                    
+                </div>            
+            </div>
+            <div class="errors">
+                <div id="close" class="close"><icon></icon>Close</div>
+                <h1>Error fetching data</h1>
+                <h1 class="try">Try checking your internet connections</h1>
+            </div>        
+    </div>  
+    
+    <div class="far-right">
+        <div class="sidebar-r">
+            <div class="notification-icon">
+                <i class='bx bx-bell'></i>
+            </div>
+            <div class="profile">
+              <p>johannes</p><i class='bx bx-chevron-down' style='color:#ffffff'></i>
+              <img src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="header">
+              <div class="icons">
+                <h4>Continue</h4><button onclick="slsl()" class="dddd d-l d-ll" id="nexts"><</button><button class="dddd d-r" id="nexts">></button>
+              </div>
+              <div class="see-more">
+                See More ➡️
+              </div>
+            </div>
+            
+            <div class="all-thumnail continue">
+                <!-- <div id="no1" class="thumbnail cont">
+                    <div class="more-d">
+                            <img id="imgae" src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie thumbnail">
+                            <div class="info">
+                                <h3>Movie Title</h3>
+                                <p>Episodes Left: 5</p>
+                                <p>Episode Progress: 80%</p>
+                            </div>
+                    </div>        
+                    <div class="buttons">
+                        <button id="drop-btn" class="button drop-button">Drop</button>
+                        <button id="watch-btn" class="button watch-button">Watch</button>
+                    </div>
+                </div>
+
+                <div class="thumbnail cont">
+                    <div class="more-d">
+                            <img src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                            <div class="info">
+                                <h3>Movie Title</h3>
+                                <p>Episodes Left: 5</p>
+                                <p>Episode Progress: 80%</p>
+                            </div>
+                    </div>        
+                    <div class="buttons">
+                        <button class="button drop-button watchlist-button">Drop</button>
+                        <button class="button watch-button">Watch</button>
+                    </div> -->
+            </div> 
+        </div>    
+
+
+        </div>
+
+        <div class="container">
+            <div class="header sesdeas">
+              <div class="icons">
+                <h4>Top Rated</h4><button class="dddd d-l d-ll" id="nexts"><</button><button class="dddd d-r" id="nexts">></button>
+              </div>
+              <div class="see-more">
+                See More ➡️
+              </div>
+            </div>
+             
+            <div class="all-thumnail">
+                    <div id="no1" class="thumbnail no1">
+                        <div class="more-d d-top">
+                                <img id="small-top" src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                                <div class="info lop top">
+                                    <h3>Movie Title</h3>
+                                </div>
+                        </div>         
+                        <div class="buttons top">
+                            <button class="button drop-button">Drop</button>
+                            <button class="button watch-button">Watch</button>
+                        </div>
+                    </div>
+
+                    <div class="thumbnail ll">
+                        <div class="more-d d-top">
+                                <img id="small-top" src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                                <div class="info lop top">
+                                    <h3>Movie Title</h3>
+                                </div>
+                        </div>         
+                        <div class="buttons top">
+                            <button class="button drop-button">Drop</button>
+                            <button class="button watch-button">Watch</button>
+                        </div>
+                    </div>                
+            </div>    
+
+
+        </div>
+        
+        <div class="container">
+            <div class="header">
+              <div class="icons">
+                <h4>Genres</h4><button class="dddd d-l d-ll" id="nexts-4" ><</button><button id="nexts-3" class="dddd d-r">></button>
+              </div>
+              <div class="see-more">
+                See More<span style="margin-left: 7px;">></span>
+              </div>
+            </div>
+            
+            <div id="ending-3" class="all-thumnail ending">
+                <div class="thumbnail end end-3">
+                    <img id="ttt" src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                    <h2>Action</h2>
+                </div>
+
+                <div class="thumbnail end">
+                    <img id="ttt" src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                    <h2>Drama</h2>
+                </div>
+            </div> 
+            
+            <!-- <div class="all-thumnail ending no-2">
+                <div class="thumbnail end">
+                    <img id="ttt" src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                    <h2>Action</h2>
+                </div>
+
+                <div class="thumbnail end">
+                    <img id="ttt" src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="Movie Thumbnail">
+                    <h2>Drama</h2>
+                </div>
+            </div> -->
+        </div> 
+    </div> 
+ </section>  
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="script.js"></script> 
+</body>
+</html>
