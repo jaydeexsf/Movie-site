@@ -27,6 +27,7 @@ const APILINK = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.
 const IMG_PATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=41ee980e4b5f05f6693fda00eb7c4fd4&query=";
 
+
 const carousel = document.getElementById('carousel');
 const watchlistButton = document.querySelector('.watchlist-button');
 const watchNowButton = document.querySelector('.watch-now-button');
@@ -61,12 +62,12 @@ function populateCarousel(movies) {
     });
 }
 
-
 function createMovieSlide(movie) {
     const slide = document.createElement('div');
     slide.classList.add('movie-slide');
 
     const image = document.createElement('img');
+    const id = image.id = `${movie.title}`;
     image.src = IMG_PATH + movie.backdrop_path;
     image.alt = movie.title;
 
@@ -84,9 +85,6 @@ watchlistButton.addEventListener('click', () => {
     alert('Yay! Movie added to watchlist! 🍿');
 });
 
-watchNowButton.addEventListener('click', () => {
-    alert('Hooray! Enjoy watching the movie! 🎬');
-});
 
 let currentIndex = 0;
 
@@ -119,19 +117,20 @@ function generateStars(number) {
     //   if (number < 1)
   }
 
-const API_SERIES_LINK = 'https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=41ee980e4b5f05f6693fda00eb7c4fd4&page=1'
+  const API_SERIES_LINK = 'https://api.themoviedb.org/3/discover/tv?sort_by=popularity.desc&api_key=41ee980e4b5f05f6693fda00eb7c4fd4&page=1'
 
 const cover_Div = document.querySelector('.cover');
 
 fetch(API_SERIES_LINK)
     .then(response => response.json())
     .then(data => {
-        const movies = data.results.slice(0, 3); // Limiting to 3 movies for simplicity
+        const movies = data.results.slice(0, 4); // Limiting to 3 movies for simplicity
+        console.log('its now working');
         populateCover(movies);
         console.log(movies);
     })
     .catch(error => {
-        aler('error');
+        alert('error');
         console.error('Error fetching data:', error);
     });
 
@@ -141,6 +140,7 @@ function populateCover(movies) {
     movies.forEach(movie => {
         const movieElement = createMovieElement(movie);
         cover_Div.appendChild(movieElement);
+
     });
 }
 
@@ -294,31 +294,131 @@ nexts_4.addEventListener('click', () => {
 
     // far right sidebar
 
-const watchBtn = document.getElementById('watch-btn');
-const imgae = document.getElementById('imgae');
+// const watchBtn = document.getElementById('watch-btn');
+// const imgae = document.getElementById('imgae');
 
-watchBtn.addEventListener('click', () => {
-    imgae.classList.add('full-screen');
-    imgae.style.width = `${screen.width}px`;
-    imgae.style.height = `${screen.height}px`;
-    console.log('it is working')
-})
+// watchBtn.addEventListener('click', () => {
+//     imgae.classList.add('full-screen');
+//     imgae.style.width = `${screen.width}px`;
+//     imgae.style.height = `${screen.height}px`;
+//     console.log('it is working')
+// })
 
-watchBtn.addEventListener('blur', () => {
-    imgae.classList.remove('full-screen');
-    imgae.style.width = '45px'
-    imgae.style.height = '50px'
-    console.log('it is working')
-})
+// watchBtn.addEventListener('blur', () => {
+//     imgae.classList.remove('full-screen');
+//     imgae.style.width = '45px'
+//     imgae.style.height = '50px'
+//     console.log('it is working')
+// })
 
-const dropBtn = document.getElementById('drop-btn');
-const cont = document.querySelector('.cont');
+// const dropBtn = document.getElementById('drop-btn');
+// const cont = document.querySelector('.cont');
 
-dropBtn.addEventListener('click', () => {
-    cont.classList.add('droping');
-})
+// dropBtn.addEventListener('click', () => {
+//     cont.classList.add('droping');
+// })
 
-dropBtn.addEventListener('blur', () => {
-    cont.classList.remove('droping');
-})
+// dropBtn.addEventListener('blur', () => {
+//     cont.classList.remove('droping');
+// })
 
+
+// function for the api in the far right //
+
+
+const all_Thumbnail = document.querySelector('.all-thumnail');
+
+fetch(API_SERIES_LINK)
+    .then(response => response.json())
+    .then(data => {
+        const movies = data.results.slice(8, 20); // Limiting to 3 movies for simplicity
+        console.log('its now working but theres nothimg here why');
+        populateFarMovies(movies);
+        console.log(movies);
+    })
+    .catch(error => {
+        alert('error');
+        console.error('Error fetching data:', error);
+    });
+
+function populateFarMovies(movies) {
+    movies.forEach((movie, index) => {
+        const movieElement = createFarRightMovies(movie, index);
+        all_Thumbnail.appendChild(movieElement);
+    });
+}
+
+function createFarRightMovies(movie, index) {
+    const containerDiv = document.createElement('div');
+    containerDiv.id = `${movie.id}`;
+    containerDiv.className = 'thumbnail cont';
+
+    // Creating the inner div for movie details
+    const detailsDiv = document.createElement('div');
+    detailsDiv.className = 'more-d';
+
+    // Creating the image element
+    const image = document.createElement('img');
+    image.id = 'imgae';
+    image.src = `${IMG_PATH}${movie.poster_path}`; // Corrected line
+    image.alt = 'Movie thumbnail';
+
+    // Creating the inner div for movie information
+    const infoDiv = document.createElement('div');
+    infoDiv.className = 'info';
+
+    // Creating the heading for movie title
+    const titleHeading = document.createElement('h3');
+    titleHeading.textContent = `${movie.title}`;
+
+    // Creating paragraph for episodes left
+    const episodesLeftParagraph = document.createElement('p');
+    episodesLeftParagraph.textContent = 'Episodes Left: 5';
+
+    // Creating paragraph for episode progress
+    let ara = [];
+
+    for (let i = 0; i < 10; i++) {
+        const random = Math.floor(Math.random() * 100);
+        ara.push(random);
+    }
+
+    const episodeProgressParagraph = document.createElement('p');
+    episodeProgressParagraph.textContent = `Episode Progress: ${ara[index]}%`;
+
+    // Append elements to the infoDiv
+    infoDiv.appendChild(titleHeading);
+    infoDiv.appendChild(episodesLeftParagraph);
+    infoDiv.appendChild(episodeProgressParagraph);
+
+    // Append image and infoDiv to detailsDiv
+    detailsDiv.appendChild(image);
+    detailsDiv.appendChild(infoDiv);
+
+    // Create the inner div for buttons
+    const buttonsDiv = document.createElement('div');
+    buttonsDiv.className = 'buttons';
+
+    // Create the drop button
+    const dropButton = document.createElement('button');
+    dropButton.id = 'drop-btn';
+    dropButton.className = 'button drop-button';
+    dropButton.textContent = 'Drop';
+
+    // Create the watch button
+    const watchButton = document.createElement('button');
+    watchButton.id = 'watch-btn';
+    watchButton.className = 'button watch-button';
+    watchButton.textContent = 'Watch';
+
+    // Append buttons to buttonsDiv
+    buttonsDiv.appendChild(dropButton);
+    buttonsDiv.appendChild(watchButton);
+
+    // Append detailsDiv and buttonsDiv to containerDiv
+    containerDiv.appendChild(detailsDiv);
+    containerDiv.appendChild(buttonsDiv);
+
+    // Return containerDiv
+    return containerDiv;
+}
