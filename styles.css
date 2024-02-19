@@ -46,7 +46,12 @@ section {
 }
 
 .sidebar span {
-    font-size: 14px;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+.bx {
+    font-size: 22px;
 }
 
 .sidebar {
@@ -56,10 +61,14 @@ section {
     color: #fff;
     padding:0 0 5px 25px;
     display: flex;
+    gap: 40px;
     flex-direction: column;
-    justify-content: space-between;
     transition: transform 1s;
     /* transform: translateX(-90%); */
+}
+
+.menu {
+    margin-top: 150px;
 }
 
 .menu-btn {
@@ -82,12 +91,15 @@ section {
 }
 
 .logo {
+    position: absolute;
+    top: 0;
+    left: -270px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 30%;
-    margin-bottom: -10%;
+    width: 35%;
     text-shadow: -3px -3px 2px #000000;
+    font-size: 30px;
 }
 
 h3 {
@@ -119,7 +131,7 @@ span {
 }
 
 .mo {
-    margin-top: -25px;
+    margin-top: -45px;
     font-size: medium;
     color: #00b9ade6;
     text-shadow: 2px 2px 2px#000000;
@@ -128,11 +140,16 @@ span {
 /*      grid number 2        */
 
 
+.aList {
+    display: flex;
+    justify-content: space-between;
+    gap: 8vw;
+}
 
 nav {
     display: flex;
-    gap:15%;
     align-items: center;
+    justify-content: space-between;
     white-space: nowrap;
 }
 
@@ -140,7 +157,7 @@ nav a {
     text-decoration: none;
     color: #fff;
     position: relative;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 nav a::before {
@@ -165,14 +182,14 @@ nav a.active::before {
 }
 
 .search {
-    padding: 7px 15px;
+    padding: 12px 15px;
     border-radius: 12px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
     width: 25%;
     background-color: var(--secodanry-color);
-    margin-left: 5%;
+    margin-left: 10%;
 }
 
 .search input {
@@ -184,7 +201,8 @@ nav a.active::before {
     outline: none;
     margin-right: 0px;
     margin-left: 0px;
-    width: 140px;
+    width: 90%;
+    font-size: 17px;
 }
 
 .search i {
@@ -195,12 +213,12 @@ nav a.active::before {
 .main {
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 10px 30px;
+    gap: 5px;
+    padding: 30px 30px 0px 30px;
 }
 
 .sidebar h3{
-    font-size: 15px;
+    font-size: 20px;
     color: #8f8f8f;
 }
 
@@ -209,23 +227,25 @@ nav a.active::before {
 #carousel-container {
     position: relative;
     width: 100%;
-    margin: auto;
+    margin: 0;
     overflow: hidden;
+    margin-top: 23px;
 }
 
 #carousel {
     width: 100%;
+    height: 80%;
     display: flex;
     transition: transform 0.8s cubic-bezier(0.68, 0.18, 0, 0.46);
 }
 
 .popular h1 {
-    font-size: medium;
+    font-size: 35px;
 }
 
 #carousel img {
     width: 100%;
-    height: 75%;
+    height: 55vh;
     object-fit:cover;
     border-radius: 10px;
 }
@@ -233,6 +253,7 @@ nav a.active::before {
 
 .movie-slide {
     min-width: 100%;
+    height: fit-content;
     box-sizing: border-box;
     position: relative;
     overflow: hidden;
@@ -250,7 +271,7 @@ nav a.active::before {
 
 .button-container {
     position: absolute;
-    top: 68%;
+    top: 90%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -260,18 +281,18 @@ nav a.active::before {
 .watchlist-button,
 .watch-now-button {
     color: rgb(0, 0, 0);
-    font-size: 10px;
+    font-size: 15px;
     border: none;
     cursor: pointer;
     text-align: center;
-    border-radius:5px;
+    border-radius:10px;
     font-weight: 700;
 }
 
 .watchlist-button {
     background-color: #918e8e81;
     margin-left: 1%;
-    padding: 12px 20px;
+    padding: 1% 5%;
 }
 
 .watchlist-button:hover {
@@ -282,7 +303,7 @@ nav a.active::before {
 .watch-now-button {
     background-color: var(--tertiary-color);
     margin-right: 1%;
-    padding: 12px 30px;
+    padding: 2% 6%;
 }
 
 .watch-now-button:hover {
@@ -291,7 +312,7 @@ nav a.active::before {
 
 .button-container-next-prev {
     position: absolute;
-    top: 34%;
+    top: 42%;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -300,7 +321,7 @@ nav a.active::before {
 }
 
 .prev {
-    padding: 5px 8px;
+    padding: 10px 12px;
     border-radius: 5px;
     border: none;
     background-color: #918e8e81;
@@ -321,8 +342,8 @@ nav a.active::before {
     display: flex;
     flex-direction: column;
     gap: 0px;
-    margin-top: -100px;
-    margin-bottom: -15px;
+    margin-top: 0px;
+    margin-bottom: 0;
     padding: 0;
     color: white;
 }
@@ -330,8 +351,8 @@ nav a.active::before {
 .cover {
     padding: 0;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 20px;
+    /* grid-template-columns: repeat(3, 33.33% 33.33% 33.33%); */
+    gap: 10px;
     box-sizing: border-box;
     overflow: hidden;
     display: flex;
@@ -343,8 +364,8 @@ nav a.active::before {
 } 
 
 .whole img{
-    height: 190px;
-    width: 100%;
+    height: 200px;
+    width: 260px;
     z-index: -100;
     border-radius: 10px;
     object-fit: cover;
@@ -422,7 +443,7 @@ nav a.active::before {
 }
 
 .mo {
-    font-size: 13px;
+    font-size: 22px;
 }
 
 /* far right side bar */
@@ -505,38 +526,38 @@ nav a.active::before {
     .thumbnail {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      width: 160px;
-      height: fit-content;
+      width: 700px;
+      height: 150px;
       margin-top: -15px;
       font-size: x-small;
       background-color: #16181E;
       box-sizing: border-box;
       border-radius: 7px;
+      padding: 10px;
     }
 
     .all-thumnail {
+        margin-top: 20px;
         display: flex;
-        width: 100%;
-        gap: 20px;
-        white-space: nowrap;
+        gap: 30px;
+        white-space:nowrap;
     }
 
     .thumbnail img {
-      width: 45px;
-      height: 50px;
+      width: 90%;
+      height: 80%;
       border-radius: 5px;
       margin-right: 10px;
     }
 
-    .cont {
-        padding: 5px;
-    }
+    /* .cont {
+        
+    } */
 
    .more-d {
         display: grid;
-        grid-template-columns: 1fr 2fr;
-        grid-template-rows: 60px;
+        grid-template-columns: 20fr 25fr;
+        grid-template-rows:105px;
     }
 
     .info {
