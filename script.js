@@ -294,23 +294,24 @@ nexts_4.addEventListener('click', () => {
 
     // far right sidebar
 
-// const watchBtn = document.getElementById('watch-btn');
-// const imgae = document.getElementById('imgae');
+function dropingF() {
+const imgae = document.getElementById(`imgae`);
 
-// watchBtn.addEventListener('click', () => {
-//     imgae.classList.add('full-screen');
-//     imgae.style.width = `${screen.width}px`;
-//     imgae.style.height = `${screen.height}px`;
-//     console.log('it is working')
-// })
+    imgae.classList.add('full-screen');
+    imgae.style.width = `${screen.width}px`;
+    imgae.style.height = `${screen.height}px`;
+    console.log('it is working')
+}
 
-// watchBtn.addEventListener('blur', () => {
-//     imgae.classList.remove('full-screen');
-//     imgae.style.width = '45px'
-//     imgae.style.height = '50px'
-//     console.log('it is working')
-// })
+function actualDrop() {
+    const imgae = document.getElementById(`imgae`);
 
+    imgae.classList.remove('full-screen');
+    imgae.classList.add('droping');
+    imgae.style.width = '45px'
+    imgae.style.height = '50px'
+    console.log('it is working')
+}
 // const dropBtn = document.getElementById('drop-btn');
 // const cont = document.querySelector('.cont');
 
@@ -331,7 +332,7 @@ const all_Thumbnail = document.querySelector('.all-thumnail');
 fetch(API_SERIES_LINK)
     .then(response => response.json())
     .then(data => {
-        const movies = data.results.slice(8, 20); // Limiting to 3 movies for simplicity
+        const movies = data.results.slice(8, 20); // Limiting small movies for simplicity
         console.log('its now working but theres nothimg here why');
         populateFarMovies(movies);
         console.log(movies);
@@ -361,7 +362,7 @@ function createFarRightMovies(movie, index) {
     const image = document.createElement('img');
     image.id = 'imgae';
     image.src = `${IMG_PATH}${movie.poster_path}`; // Corrected line
-    image.alt = 'Movie thumbnail';
+    image.alt = movie.original_name;
 
     // Creating the inner div for movie information
     const infoDiv = document.createElement('div');
@@ -369,7 +370,7 @@ function createFarRightMovies(movie, index) {
 
     // Creating the heading for movie title
     const titleHeading = document.createElement('h3');
-    titleHeading.textContent = `${movie.title}`;
+    titleHeading.textContent = movie.original_name;
 
     // Creating paragraph for episodes left
     const episodesLeftParagraph = document.createElement('p');
@@ -404,12 +405,18 @@ function createFarRightMovies(movie, index) {
     dropButton.id = 'drop-btn';
     dropButton.className = 'button drop-button';
     dropButton.textContent = 'Drop';
+    dropButton.onclick = function() {
+        actualDrop();
+    }
 
     // Create the watch button
     const watchButton = document.createElement('button');
     watchButton.id = 'watch-btn';
     watchButton.className = 'button watch-button';
     watchButton.textContent = 'Watch';
+    watchButton.onclick = function() {
+        dropingF();
+    }
 
     // Append buttons to buttonsDiv
     buttonsDiv.appendChild(dropButton);
