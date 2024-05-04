@@ -429,3 +429,14 @@ function createFarRightMovies(movie, index) {
     // Return containerDiv
     return containerDiv;
 }
+
+// const tt = document.querySelector(".ttt");
+
+// setInterval(()=>{
+//     tt.style.opacity = 0;
+//     setInterval(()=> {
+//         tt.style.opacity = 1;
+//     },7000);
+// }, 2000)
+
+console.log(window.innerWidth + "this one");
