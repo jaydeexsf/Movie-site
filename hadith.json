@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Intention in deeds",
+    "reference": "Sahih al-Bukhari 1; Sahih Muslim 1907",
+    "text": "Actions are but by intentions, and every man shall have only that which he intended...",
+    "grading": "Sahih",
+    "collection": "Sahihayn",
+    "topics": ["manners", "creed"]
+  },
+  {
+    "id": 2,
+    "title": "Pillars of Islam",
+    "reference": "Sahih al-Bukhari 8; Sahih Muslim 16",
+    "text": "Islam is built upon five: testimony that none has the right to be worshipped but Allah and Muhammad is His Messenger, establishing prayer, paying Zakah, fasting Ramadan, and Hajj to the House (if able).",
+    "grading": "Sahih",
+    "collection": "Sahihayn",
+    "topics": ["worship"]
+  },
+  {
+    "id": 3,
+    "title": "Excellence of Qur'an recitation",
+    "reference": "Sahih al-Bukhari 5027",
+    "text": "The best among you are those who learn the Qur'an and teach it.",
+    "grading": "Sahih",
+    "collection": "Bukhari",
+    "topics": ["manners", "quran"]
+  },
+  {
+    "id": 4,
+    "title": "Sincerity and following the Sunnah",
+    "reference": "Riyadh as-Salihin 1",
+    "text": "Whoever introduces into this matter of ours that which is not from it, it is rejected.",
+    "grading": "Sahih (Al-Albani)",
+    "collection": "Riyadh as-Salihin",
+    "topics": ["creed", "manners"]
+  }
+]

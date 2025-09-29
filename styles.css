@@ -8,27 +8,16 @@ body {
     padding: 0;
     font-family: 'fira sans', sans-serif;
     background-color: var(--primary-color);
-    height: 100vh;
+    height: auto;
+    min-height: 100vh;
     width: 100vw;
-    overflow: hidden;
+    overflow: auto;
 }
 
 h3:hover {
     text-shadow: 1px 1px #7bb0ad;
     cursor:default;
 }
-
-.popular h3{
-    font-size: medium;
-    font-family: 'Protest Revolution';
-    width: 180px; 
-    color: #00B9AE;
-}
-
-.movie-info {
-    font-family: 'Protest Revolution';
-}
-
 
 :root {
     --primary-color: #16181E;
@@ -40,16 +29,9 @@ h3:hover {
 section {
     display: grid;
     grid-template-columns: 15% 60% 25%;
-    grid-template-rows: 100vh;
-    overflow: none;
-
+    grid-template-rows: auto;
+    overflow: visible;
 }
-
-.sidebar span {
-    font-size: 20px;
-    margin-left: 10px;
-}
-
 .bx {
     font-size: 22px;
 }
@@ -65,6 +47,9 @@ section {
     flex-direction: column;
     transition: transform 1s;
     /* transform: translateX(-90%); */
+    position: sticky;
+    top: 0;
+    overflow: auto;
 }
 
 .menu-btn {
@@ -208,6 +193,7 @@ nav a.active::before {
     flex-direction: column;
     gap: 5px;
     padding: 30px 30px 0px 30px;
+    overflow: auto;
 }
 
 .sidebar h3{
@@ -237,6 +223,8 @@ nav a.active::before {
 }
 
 #carousel img {
+    /* hidden to avoid animate imagery */
+    display: none;
     width: 100%;
     height: 55vh;
     object-fit:cover;
@@ -539,6 +527,8 @@ nav a.active::before {
     }
 
     .thumbnail img {
+      /* hidden to avoid animate imagery */
+      display: none;
       width: 90%;
       height: 80%;
       border-radius: 5px;
@@ -617,7 +607,8 @@ nav a.active::before {
     }
 
 .all-thumbnail .thumbnail {
-    background-image: url'/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg';
+    /* background image removed for modest, text-first UI */
+    background-image: none;
 }    
 
 #ttt {
@@ -627,6 +618,7 @@ nav a.active::before {
     width: 170px;
     height: 110px;
     opacity: 0.5;
+    display: none; /* hide static anime image */
 }
 
 .end {
@@ -847,9 +839,68 @@ nav a.active::before {
         transform: translateX(-100%);
         display: none;
     }
-
-    .main {
-        
-    }
+    .main { /* responsive tweaks can go here */ }
 }
 
+
+/* App minimal additions */
+.hidden { display: none !important; }
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.modal-content {
+  background: #333;
+  color: #fff;
+  width: min(900px, 90vw);
+  max-height: 85vh;
+  overflow: auto;
+  border-radius: 10px;
+  padding: 20px 16px 16px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.section-title { color: #fff; margin: 16px 0 8px; font-size: 22px; }
+
+.list { display: flex; flex-direction: column; gap: 8px; }
+.list-row { display: flex; align-items: center; justify-content: space-between; background: #16181E; border-radius: 8px; padding: 10px 12px; }
+.list-title { color: #fff; font-size: 14px; }
+.list-actions { display: flex; gap: 8px; }
+
+.cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 10px; }
+.cat-card { background: #16181E; color: #fff; padding: 14px; border-radius: 8px; text-align: center; }
+
+.verse-list { display: flex; flex-direction: column; gap: 10px; }
+.verse-item { background: #16181E; border-radius: 8px; padding: 10px; }
+.verse-ar { font-size: 18px; line-height: 1.8; direction: rtl; }
+.verse-meta { color: #aaa; font-size: 12px; margin-top: 4px; }
+
+/* New sections styling */
+.subsection { background:#16181E; color:#fff; padding:12px 14px; border-radius:8px; margin:12px 0; }
+.grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:12px; }
+.card { background:#1f222a; border-radius:8px; padding:12px; color:#fff; }
+.muted { color:#aaa; font-size:12px; }
+.badge { display:inline-block; background:#00B9AE; color:#000; padding:2px 8px; border-radius:999px; font-size:12px; font-weight:700; }
+.controls { display:flex; gap:8px; flex-wrap:wrap; }
+.input, .select { background:#21242D; color:#fff; border:none; border-radius:8px; padding:8px 10px; }
+.btn { background:#00B9AE; color:#000; border:none; border-radius:8px; padding:8px 12px; cursor:pointer; font-weight:700; }
+.btn.secondary { background:#9d9d9d; color:#fff; }
+.rtl { direction: rtl; }

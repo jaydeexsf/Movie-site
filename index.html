@@ -17,46 +17,50 @@
         </div>
         <div class="menu">
             <h3>Menu</h3>
-            <div class="menu-item">
-                <i class='bx bx-home'></i>
-                <span>Home</span>
+            <div class="menu-item" data-target="quran">
+                <i class='bx bx-book-open'></i>
+                <span>Qur'an</span>
             </div>
-            <div class="menu-item">
-                <i class='bx bx-compass'></i>
-                <span>Discover</span>
+            <div class="menu-item" data-target="tajweed">
+                <i class='bx bx-book'></i>
+                <span>Tajweed</span>
             </div>
-            <div class="menu-item">
-                <i class='bx bxs-trophy'></i>
-                <span>Awards</span>
+            <div class="menu-item" data-target="tafsir">
+                <i class='bx bx-book-content'></i>
+                <span>Tafsir</span>
             </div>
-            <div class="menu-item">
-                <i class='bx bx-user'></i>
-                <span>Celebrities</span>
+            <div class="menu-item" data-target="auth">
+                <i class='bx bx-check-shield'></i>
+                <span>Hadith Authentication</span>
+            </div>
+            <div class="menu-item" data-target="courses">
+                <i class='bx bx-task'></i>
+                <span>Courses</span>
+            </div>
+            <div class="menu-item" data-target="fatwa">
+                <i class='bx bx-link-external'></i>
+                <span>Fatwa Navigator</span>
+            </div>
+            <div class="menu-item" data-target="ibadah">
+                <i class='bx bx-time-five'></i>
+                <span>Ibadah & Adhkar</span>
             </div>
         </div>
         <div class="library">
             <h3>Library</h3>
-            <div class="library-item">
-                <i class='bx bx-time'></i>
-                <span>Recent</span>
-            </div>
-            <div class="library-item">
-                <i class='bx bx-star'></i>
-                <span>Top Talent</span>
-            </div>
-            <div class="library-item">
-                <i class='bx bx-cloud-download'></i>
-                <span>Downloaded</span>
-            </div>
-            <div class="library-item">
+            <div class="library-item" data-target="study">
                 <i class='bx bx-list-ul'></i>
-                <span>Playlists</span>
+                <span>Study List</span>
             </div>
-            <div class="library-item">
-                <i class='bx bx-show'></i>
-                <span>Watchlist</span>
+            <div class="library-item" data-target="muhaddith">
+                <i class='bx bx-user'></i>
+                <span>Muhaddithun</span>
             </div>
-            <div class="library-item">
+            <div class="library-item" data-target="categories">
+                <i class='bx bx-category'></i>
+                <span>Categories</span>
+            </div>
+            <div class="library-item" data-target="completed">
                 <i class='bx bx-check-circle'></i>
                 <span>Completed</span>
             </div>
@@ -83,10 +87,18 @@
     <div class="main">
             <nav>
                 <div class="aList">
-                    <a href="#" class="active">Movies</a>
-                    <a href="#">TV Shows</a>
-                    <a href="#">Anime</a>
+                    <a href="#" class="active">Qur'an</a>
+                    <a href="#">Hadith</a>
+                    <a href="#">Categories</a>
                 </div>    
+
+        <!-- Verse/Hadith Modal -->
+        <div id="verse-modal" class="modal hidden">
+            <div class="modal-content">
+                <button class="modal-close">×</button>
+                <div class="modal-body"></div>
+            </div>
+        </div>
                 <form class="search">
                     <box-icon color="#fff" name='search'></box-icon>
                     <input type="text" placeholder="Search...">
@@ -100,17 +112,32 @@
                     <button onclick="nextSlide()" class="prev next"><box-icon name='chevron-right' color='#ffffff'></box-icon></button>
                 </div>
                 <div class="button-container">
-                    <button class="watchlist-button">Add to Watchlist</button>
-                    <button class="watch-now-button">Watch Now</button>
+                    <button class="watchlist-button">Add to Study List</button>
+                    <button class="watch-now-button">Read</button>
                 </div>
             </div>
 
             <div class="popular">
-                <h1>Popular on TinyMoviez</h1>
+                <h1>Popular Topics</h1>
                 <div class="cover">
                     
                 </div>            
             </div>
+            
+            <!-- App sections (minimal additions) -->
+            <div id="quran-section"></div>
+            <div id="hadith-section" style="display:none"></div>
+            <div id="categories-section" style="display:none"></div>
+            <!-- New pages for sidebar -->
+            <div id="tajweed-section" style="display:none"></div>
+            <div id="tafsir-section" style="display:none"></div>
+            <div id="auth-section" style="display:none"></div>
+            <div id="muhaddith-section" style="display:none"></div>
+            <div id="study-section" style="display:none"></div>
+            <div id="settings-section" style="display:none"></div>
+            <div id="courses-section" style="display:none"></div>
+            <div id="fatwa-section" style="display:none"></div>
+            <div id="ibadah-section" style="display:none"></div>
             <div class="errors">
                 <div id="close" class="close"><icon></icon>Close</div>
                 <h1>Error fetching data</h1>
@@ -125,14 +152,14 @@
             </div>
             <div class="profile">
               <p>johannes</p><i class='bx bx-chevron-down' style='color:#ffffff'></i>
-              <img src="/anime_hacker_2_by_taggedzi_dfjuzi4-fullview.jpg" alt="">
+              
             </div>
         </div>
 
         <div class="container">
             <div class="header">
               <div class="icons">
-                <h4>Continue</h4><button class="dddd d-l d-ll" id="nexts"><</button><button class="dddd d-r" id="nexts">></button>
+                <h4>Continue Studying</h4><button class="dddd d-l d-ll" id="nexts"><</button><button class="dddd d-r" id="nexts">></button>
               </div>
               <div class="see-more">
                 See More ➡️
@@ -151,7 +178,7 @@
         <div class="container diffi">
             <div class="header">
               <div class="icons">
-                <h4>Genres</h4><button class="dddd d-l d-ll" id="nexts-4" ><</button><button id="nexts-3" class="dddd d-r">></button>
+                <h4>Categories</h4><button class="dddd d-l d-ll" id="nexts-4" ><</button><button id="nexts-3" class="dddd d-r">></button>
               </div>
               <div class="see-more">
                 See More<span style="margin-left: 7px;">></span>
@@ -185,7 +212,116 @@
     </div> 
  </section> 
  
+<style>
+  html, body { height: auto; min-height: 100vh; overflow: auto; }
+  section { grid-template-rows: auto; overflow: visible; }
+  .main { overflow: visible; }
+</style>
 <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
-<script src="script.js"></script> 
+<script src="script.js"></script>
+<script src="app.js"></script>
+<script>
+  (function() {
+    const QURAN_API = 'https://api.alquran.cloud/v1/surah';
+
+    function safeCloneReplace(el, handler) {
+      if (!el) return null;
+      const clone = el.cloneNode(true);
+      el.parentNode.replaceChild(clone, el);
+      if (handler) clone.addEventListener('click', handler);
+      return clone;
+    }
+
+    function buildSlide(s) {
+      const slide = document.createElement('div');
+      slide.className = 'movie-slide';
+      const info = document.createElement('div');
+      info.className = 'movie-info';
+      info.textContent = `${s.englishName} (${s.numberOfAyahs} ayat)`;
+      slide.appendChild(info);
+      return slide;
+    }
+
+    function buildCoverCard(s) {
+      const whole = document.createElement('div');
+      whole.className = 'whole';
+      const inside = document.createElement('div');
+      inside.className = 'inside-elements';
+      const ins = document.createElement('div');
+      ins.className = 'ins';
+      const h3 = document.createElement('h3');
+      h3.textContent = s.englishName;
+      const meta = document.createElement('div');
+      meta.className = 'epi-cate';
+      const p1 = document.createElement('p');
+      p1.className = 'epi';
+      p1.textContent = `${s.numberOfAyahs} ayat`;
+      const p2 = document.createElement('p');
+      p2.className = 'cate';
+      p2.textContent = s.revelationType || '';
+      meta.appendChild(p1); meta.appendChild(p2);
+      ins.appendChild(h3); ins.appendChild(meta);
+      inside.appendChild(ins);
+      whole.appendChild(inside);
+      return whole;
+    }
+
+    function buildRightItem(s, progress) {
+      const cont = document.createElement('div');
+      cont.className = 'thumbnail cont';
+      const details = document.createElement('div');
+      details.className = 'more-d';
+      const info = document.createElement('div');
+      info.className = 'info';
+      const h3 = document.createElement('h3');
+      h3.textContent = s.englishName;
+      const pLeft = document.createElement('p');
+      pLeft.textContent = `Ayat: ${s.numberOfAyahs}`;
+      const pProg = document.createElement('p');
+      pProg.textContent = `Progress: ${progress}%`;
+      info.appendChild(h3); info.appendChild(pLeft); info.appendChild(pProg);
+      details.appendChild(document.createElement('div')); // placeholder for image grid cell
+      details.appendChild(info);
+      const buttons = document.createElement('div');
+      buttons.className = 'buttons';
+      const removeBtn = document.createElement('button');
+      removeBtn.className = 'button drop-button';
+      removeBtn.textContent = 'Remove';
+      const readBtn = document.createElement('button');
+      readBtn.className = 'button watch-button';
+      readBtn.textContent = 'Read';
+      buttons.appendChild(removeBtn); buttons.appendChild(readBtn);
+      cont.appendChild(details); cont.appendChild(buttons);
+      return cont;
+    }
+
+    function overrideButtons() {
+      const wl = document.querySelector('.watchlist-button');
+      const wn = document.querySelector('.watch-now-button');
+      safeCloneReplace(wl, () => alert('Added to Study List'));
+      safeCloneReplace(wn, () => alert('Open Surah'));
+    }
+
+    function populateUI(surahs) {
+      const carousel = document.getElementById('carousel');
+      const cover = document.querySelector('.cover');
+      const right = document.querySelector('.all-thumnail');
+      if (carousel) { carousel.innerHTML = ''; surahs.slice(0,10).forEach(s=>carousel.appendChild(buildSlide(s))); }
+      if (cover) { cover.innerHTML = ''; surahs.slice(0,4).forEach(s=>cover.appendChild(buildCoverCard(s))); }
+      if (right) {
+        right.innerHTML = '';
+        const rng = Array.from({length: 12}, () => Math.floor(Math.random()*100));
+        surahs.slice(8,20).forEach((s,i)=> right.appendChild(buildRightItem(s, rng[i%rng.length])));
+      }
+      overrideButtons();
+    }
+
+    fetch(QURAN_API)
+      .then(r => r.json())
+      .then(d => Array.isArray(d?.data) ? d.data : [])
+      .then(populateUI)
+      .catch(err => console.error('Qur\'an API load failed', err));
+  })();
+</script> 
 </body>
 </html>

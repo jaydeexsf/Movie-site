@@ -1,0 +1,8 @@
+[
+  {"id":"thalaathah","title":"Thalathat al-Usul","lessons":[
+    {"id":"l1","title":"Who is your Lord?","summary":"Rububiyyah, Uluhiyyah, Asma wa Sifat with dalil.","quiz":[{"q":"Meaning of Tawheed?","a":["Singling Allah in worship"],"choices":["Belief in fate","Singling Allah in worship","Love of all"],"correct":1}]},
+    {"id":"l2","title":"What is your religion?","summary":"Islam with its pillars and evidences.","quiz":[]}
+  ],"scholars":["Ibn Baz","Ibn 'Uthaymeen","Al-Fawzan"]},
+  {"id":"kitab-tawheed","title":"Kitab al-Tawheed","lessons":[{"id":"l1","title":"Chapter 1","summary":"Importance of Tawheed with Qur'an and Sunnah evidences.","quiz":[]}],"scholars":["Ibn Baz","Ibn 'Uthaymeen","Al-Fawzan"]}
+]
+

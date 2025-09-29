@@ -1,0 +1,12 @@
+{
+  "morning": [
+    {"text":"Allahumma bika asbahna...","reference":"Abu Dawud 4/322","grading":"Hasan"}
+  ],
+  "evening": [
+    {"text":"Amsayna wa amsal mulku lillah...","reference":"Tirmidhi","grading":"Hasan"}
+  ],
+  "post_prayer": [
+    {"text":"Subhanallah (33), Alhamdulillah (33), Allahu Akbar (34)","reference":"Sahih Muslim","grading":"Sahih"}
+  ]
+}
+
